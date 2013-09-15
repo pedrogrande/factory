@@ -1,26 +1,66 @@
-<%= link_to "Factory", root_path, :class => 'brand' %>
-<ul class="nav">
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to 'Login', new_user_session_path %>
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to 'Edit account', edit_user_registration_path %>
-    </li>
-    <% if current_user.has_role? :admin %>
-      <li>
-      <%= link_to 'Admin', users_path %>
-      </li>
-    <% end %>
-  <% else %>
-    <li>
-    <%= link_to 'Sign up', new_user_registration_path %>
-    </li>
-  <% end %>
-</ul>
+<div class="banner">
+      <div class="logo-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-10 col-sm-6 col-md-4">
+              <div class="logo-box">
+                <h1>The<br>C<span class="cog"><i class="icon-cog "></i></span>der<br>Fact<span class="cog"><i class="icon-cog"></i></span>ry</h1>
+              </div>
+              <%= render 'layouts/share' %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="sticky_navigation">
+    <div class="container">
+     <div class="row">
+      <div class="col-md-12" id="small_logo">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Menu</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <%= link_to root_path, :class => 'navbar-brand' do %>
+               The C<i class="icon-sun icon-spin"></i>der Fact<i class="icon-sun icon-spin"></i>ry
+            <% end %>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse pull-right">
+            <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <li>
+            <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+            </li>
+          <% else %>
+            <li>
+            <%= link_to 'Login', new_user_session_path %>
+            </li>
+          <% end %>
+          <% if user_signed_in? %>
+            <li>
+            <%= link_to 'Edit account', edit_user_registration_path %>
+            </li>
+            <% if current_user.has_role? :admin %>
+              <li>
+              <%= link_to 'Admin', users_path %>
+              </li>
+            <% end %>
+          <% else %>
+            <li>
+            <%= link_to 'Sign up', new_user_registration_path %>
+            </li>
+          <% end %>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+    </div>
+    </div>
+  </nav>
+</div>
